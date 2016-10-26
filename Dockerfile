@@ -1,4 +1,5 @@
 FROM jsurf/rpi-raspbian:latest
+RUN [ "cross-build-start" ]
 RUN mkdir -p /detection_and_mqtt
 RUN mkdir -p /lib
 RUN apt-get update && apt-get install -y \
