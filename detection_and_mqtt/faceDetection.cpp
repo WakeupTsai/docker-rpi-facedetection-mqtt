@@ -160,9 +160,9 @@ int receive_image(int socket)
 	printf("MQTT publish!\n");
 	
 	//char* msg = "mosquitto_pub -h 140.114.79.70 -t 'sensor' -m '" + count + "'";	
-	//mosquitto_pub -h 140.114.79.70 -d -t home/headCount -m "8"	
+	
 	std::ostringstream cmd; 
-	cmd << "mosquitto_pub -h " << getenv("MQTT_HOST") << " -d -t '" << getenv("MQTT_TOPIC") <<"' -m '" << count << "'";
+	cmd << "mosquitto_pub -h 140.114.79.70 -t 'sensor' -m 'Head Count : " << count << "'";
 	system(cmd.str().c_str()); 
 
 	//recordCount(name, count);
