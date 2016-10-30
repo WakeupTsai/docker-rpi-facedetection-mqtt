@@ -159,10 +159,9 @@ int receive_image(int socket)
 	int count = faceDetection(name);
 	printf("MQTT publish!\n");
 	
-	//char* msg = "mosquitto_pub -h 140.114.79.70 -t 'sensor' -m '" + count + "'";	
 	
-	std::ostringstream cmd; 
-	cmd << "mosquitto_pub -h 140.114.79.70 -t 'sensor' -m 'Head Count : " << count << "'";
+	std::ostringstream cmd;
+	cmd << "mosquitto_pub -h " << getenv("MQTT_HOST") << " -d -t '" << getenv("MQTT_TOPIC") <<"' -m '" << count << "'"; 
 	system(cmd.str().c_str()); 
 
 	//recordCount(name, count);

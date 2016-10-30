@@ -6,6 +6,6 @@ while :
 do
 	echo "Get image and detection"
 	./faceDetection
-	sleep 10
+	sleep 5
 	echo "\n\n" 
 done
